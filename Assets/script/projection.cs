@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Projection : MonoBehaviour
+public class projection : MonoBehaviour
 {
     private Scene _simulationScene;
     private PhysicsScene _physicsScene;
     [SerializeField] private Transform _enemySprites;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,14 +25,13 @@ public class Projection : MonoBehaviour
 
     }
     [SerializeField] private LineRenderer _line;
-    [SerializeField] private int _maxphysicsFrameIterations;
+    [SerializeField] private int _maxphysicsFrameIterations = 100;
 
-    public void SimulateTrajectory(GameObject rock, Vector3 pos, Vector3 veloccity){
+    public void SimulateTrajectory(RockScript rock, Vector3 pos, Vector3 velocity){
 
         var ghostObj = Instantiate(rock,pos,Quaternion.identity);
-        ghostObj.GetComponent<Renderer>().enabled = false;
         SceneManager.MoveGameObjectToScene(ghostObj.gameObject,_simulationScene);
-
+        
         _line.positionCount = _maxphysicsFrameIterations;
 
         for(int i=0; i < _maxphysicsFrameIterations;i++){
