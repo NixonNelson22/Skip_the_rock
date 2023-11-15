@@ -6,13 +6,15 @@ public class RockScript: MonoBehaviour
     private float _WaterDensity = 1000f;
 
     [SerializeField]
-    private float _SinkingDistance = 3f;
+    private float _SinkingDistance = 10f;
 
     [SerializeField] 
-    private float _SurfaceTension=190f;
+    private float _SurfaceTension = 190f;
 
        
-    private Transform _waterPlane; // water plane
+    // private Transform _waterPlane; // water plane
+    [SerializeField]
+    private float _waterPlane = 3.16f;
     private Rigidbody rigid;
     public float _collisionCount = 0; // no of collisions
     private float boyantForce;
@@ -20,7 +22,7 @@ public class RockScript: MonoBehaviour
     ContactPoint[] _Contacts;
 
     private void Awake(){
-        _waterPlane= GameObject.Find("Water").transform;
+        // _waterPlane= GameObject.Find("Water").transform;
     }
     private void Start()
     {
@@ -57,16 +59,19 @@ public class RockScript: MonoBehaviour
             
         }
         _collisionCount = col.contactCount;
-        Debug.Log("collisions / skips" + _collisionCount);
+        Debug.Log("collisions / skips" + col.contactCount);
+    }
+    private void OnCollisionExit(){
+        // instantiate a gameobject with splash animation
     }
 
     private void Bouyant()
     {
         
-        if (transform.position.y < _waterPlane.position.y)
+        if (transform.position.y < _waterPlane)
         {
-            depth = _waterPlane.position.y - transform.position.y;
-            boyantForce = _WaterDensity* Mathf.Max(depth,0);
+            depth = _waterPlane - transform.position.y;
+            boyantForce = _WaterDensity* Mathf.Abs(depth)*Time.deltaTime;
         }
     }
 
@@ -74,7 +79,7 @@ public class RockScript: MonoBehaviour
     {
         // velocity is less
         // the angle of attack is too low or high
-        if(_waterPlane.position.y-transform.position.y >=_SinkingDistance)
+        if(_waterPlane-transform.position.y >=_SinkingDistance)
         {
             Destroy(gameObject, 3);
         }

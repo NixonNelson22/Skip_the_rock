@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
@@ -48,13 +49,17 @@ public class PlayerControl : MonoBehaviour
     }
     // using action map//
     private void TapStarted(InputAction.CallbackContext context){
+        waitBeforeMoving();
         initPos = context.ReadValue<Vector2>();
         // Debug.Log(initPos);
     }
+    IEnumerator waitBeforeMoving(){
+        yield return new WaitForSeconds(1f);
+    }
     private void TapPerformed(InputAction.CallbackContext context){
-        // _playerShoot.Shoot(13f);
-        
+        waitBeforeMoving();
         movingPos= context.ReadValue<Vector2>();
+        swipeDelta = movingPos-initPos;
         // Debug.Log("finger pos"+movingPos);
        
         
@@ -65,12 +70,14 @@ public class PlayerControl : MonoBehaviour
     }
 
     void FixedUpdate(){
-        swipeDelta = movingPos-initPos;
+        
         Debug.Log(swipeDelta);
         Vector3 rotate = new Vector3(-swipeDelta.y,swipeDelta.x,0f)* Time.deltaTime * 10 ;
         // rotationEuler.eulerAngles = rotate;
+        Debug.Log(rotate);
         rotationEuler = Quaternion.Euler(rotate);
         transform.rotation = rotationEuler;
+    
     }
     
     // using enhanced touch api//
@@ -84,30 +91,8 @@ public class PlayerControl : MonoBehaviour
     //     movingPos = touchedFinger.screenPosition;
     //     Debug.Log("finger moving "+movingPos);
     // }
-
-
-    private void Update(){
-        // if(swipeDelta.y<0){
-        //     if(_xAngle<20)
-        //     _xAngle++;
-        // }
-        // if(swipeDelta.y>0){
-        //     if(_xAngle>0)
-        //     _xAngle--;
-        // }
-        //  if(swipeDelta.x<0){
-        //     if(_xAngle<80)
-        //     _yAngle++;
-        // }
-        // if(swipeDelta.y>0){
-        //     if(_xAngle>-80)
-        //     _yAngle--;
-        // }
-        
-        
-       
-       
+    public void shoot(){
+        _playerShoot.Shoot(13f);
     }
-
     
 }
