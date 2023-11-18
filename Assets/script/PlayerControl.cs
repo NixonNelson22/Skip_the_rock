@@ -47,7 +47,7 @@ public class PlayerControl : MonoBehaviour
     private void TapPerformed(InputAction.CallbackContext context){
         
         movingPos= context.ReadValue<Vector2>();
-        swipeDelta = movingPos-initPos;
+        // swipeDelta = movingPos-initPos;
         // Debug.Log("finger pos"+movingPos);
        
         
@@ -57,13 +57,31 @@ public class PlayerControl : MonoBehaviour
         
         // Debug.Log(swipeDelta);
 
-        
-            Vector3 rotate = new Vector3(-swipeDelta.y,swipeDelta.x,0f)* Time.deltaTime * 10 ;
-            // rotationEuler.eulerAngles = rotate;
-            Debug.Log(rotate);
-            rotationEuler = Quaternion.Euler(rotate);
-            transform.rotation = rotationEuler;
-        
+        if(movingPos.x>0){
+            if(_yAngle<80){
+                _yAngle++;   
+            }
+        }
+        if(movingPos.x<0){
+            if(_yAngle>-80){
+                _yAngle--;   
+            }
+        }
+        if(movingPos.y>0){
+            if(_xAngle<20){
+                _xAngle++;   
+            }
+        }
+        if(movingPos.y<0){
+            if(_xAngle>0){
+                _xAngle--;   
+            }
+        }
+        Vector3 rotate = new Vector3(_xAngle,_yAngle,0f)*10 ;
+        // rotationEuler.eulerAngles = rotate;
+        Debug.Log(rotate);
+        rotationEuler = Quaternion.Euler(rotate);
+        transform.rotation = rotationEuler;
     
     }
     IEnumerator wait(int i){

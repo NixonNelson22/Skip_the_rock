@@ -23,7 +23,7 @@ public class RockScript: MonoBehaviour
 
     private void Awake(){
         // _waterPlane= GameObject.Find("Water").transform;
-        Destroy();
+        
     }
     private void Start()
     {

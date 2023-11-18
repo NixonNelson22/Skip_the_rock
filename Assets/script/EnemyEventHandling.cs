@@ -15,7 +15,6 @@ public class EnemyEventHandling : MonoBehaviour
     {
         if(HitState){
             SwitchState="jump";
-            SwitchState=
         }   
         HitState=false;
         
