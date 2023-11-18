@@ -15,6 +15,7 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField]
     private projection _projection;
 
+    [SerializeField]
     private Animator _playerAnimator;
     private bool SwitchState = false;
 
@@ -22,13 +23,15 @@ public class PlayerShoot : MonoBehaviour
         _playerAnimator= GetComponent<Animator>();
     }
 
-    public void Shoot(float throwForce)
+    public void Shoot(float throwForce, int secs)
     {
-        SwitchState = true;
+        SwitchAnimationState();
         GameObject rock = Instantiate(_projectile,_projectileSpawnPoint.position,_projectileSpawnPoint.rotation);
         rock.GetComponent<Rigidbody>().AddForce( _projectileSpawnPoint.forward*throwForce,ForceMode.Impulse);
+        Destroy(rock,secs);
     }
     private void SwitchAnimationState(){
+        Debug.Log(SwitchState);
         if(SwitchState){
             _playerAnimator.Play("playerThrow");
         }else{

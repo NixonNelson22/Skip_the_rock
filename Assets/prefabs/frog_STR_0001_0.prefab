@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 1148755245459438101}
   - component: {fileID: 1990552205803845490}
   - component: {fileID: -4675818250811825669}
+  - component: {fileID: 6954281792622104998}
   m_Layer: 0
   m_Name: frog_STR_0001_0
   m_TagString: Untagged
@@ -235,3 +236,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.27456605, y: 0.18705404, z: 0.05527794}
   m_Center: {x: -0.00008428097, y: 0.0787864, z: 0.00096702576}
+--- !u!95 &6954281792622104998
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8501589636659754769}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5f90be5a4b238e04fa3e1515ab15bd45, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

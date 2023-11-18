@@ -7,7 +7,8 @@ public class Healthbar : MonoBehaviour
 {
     public Slider slider;
     
-    private void  SetPower(){
-
+    private void  SetPower(int throwForce){
+        slider.value = throwForce;
     }
+    
 }

@@ -126,10 +126,10 @@ TextureImporter:
       name: stones_STR_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
-        width: 48
-        height: 48
+        x: 10
+        y: 58
+        width: 33
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: stones_STR_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 48
-        width: 48
-        height: 48
+        x: 58
+        y: 58
+        width: 33
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: stones_STR_2
       rect:
         serializedVersion: 2
-        x: 96
-        y: 48
-        width: 48
-        height: 48
+        x: 106
+        y: 58
+        width: 33
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,34 +186,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stones_STR_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6285b38f5249912b9a48e37bdbb33f24
-      internalID: -735813229
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: stones_STR_4
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
-        width: 48
-        height: 48
+        x: 10
+        y: 10
+        width: 33
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +210,10 @@ TextureImporter:
       name: stones_STR_5
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
-        width: 48
-        height: 48
+        x: 55
+        y: 10
+        width: 40
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,6 +244,8 @@ TextureImporter:
       stones_STR_3: -735813229
       stones_STR_4: 756506764
       stones_STR_5: -1291227227
+      stones_STR_6: -982113817
+      stones_STR_7: -1261343754
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

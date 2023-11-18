@@ -23,6 +23,7 @@ public class RockScript: MonoBehaviour
 
     private void Awake(){
         // _waterPlane= GameObject.Find("Water").transform;
+        Destroy();
     }
     private void Start()
     {
@@ -40,26 +41,29 @@ public class RockScript: MonoBehaviour
        
     }
 
-    private void OnCollisionEnter(Collision col)
-    {
-        // increase the collision count when a collision occurs
-        //play a sound
-        col.GetContacts(_Contacts);
-        foreach (ContactPoint contact in _Contacts)
-        {
-            if (contact.otherCollider.name == "Water")
-            {
-                SoundManager trigger = new SoundManager();
-                // trigger.(); // add the variable
+    // private void OnCollisionEnter(Collision col)
+    // {
+    //     // increase the collision count when a collision occurs
+    //     //play a sound
+    //     col.GetContacts(_Contacts);
+    //     foreach (ContactPoint contact in _Contacts)
+    //     {
+    //         if (contact.otherCollider.name == "Water")
+    //         {
+    //             SoundManager trigger = new SoundManager();
+    //             // trigger.(); // add the variable
 
-            }
-            if(contact.otherCollider.name == "Terrain"){
-                DestroyIfSunk(true);
-            }
+    //         }
+    //         if(contact.otherCollider.name == "Terrain"){
+    //             DestroyIfSunk(true);
+    //         }
             
-        }
-        _collisionCount = col.contactCount;
-        Debug.Log("collisions / skips" + col.contactCount);
+    //     }
+    //     _collisionCount = col.contactCount;
+    //     Debug.Log("collisions / skips" + col.contactCount);
+    // }
+    private void OnTrigerEnter(Collider collider){
+            Debug.Log(collider);
     }
     private void OnCollisionExit(){
         // instantiate a gameobject with splash animation
@@ -75,16 +79,13 @@ public class RockScript: MonoBehaviour
         }
     }
 
-    private void DestroyIfSunk(bool destroy=false)
+    private void DestroyIfSunk()
     {
         // velocity is less
         // the angle of attack is too low or high
         if(_waterPlane-transform.position.y >=_SinkingDistance)
         {
             Destroy(gameObject, 3);
-        }
-        if(destroy){
-            Destroy(gameObject,1);
         }
     }
 
